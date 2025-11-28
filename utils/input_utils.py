@@ -6,7 +6,7 @@ def ask_number(rep,maxi = None,mini = None)
             print("Please enter a number between ",mini," and ",maxi,".")
             numb = int(input(rep))
     return numb
-
+ef zefzefzefzefz
 def ask_text(text):
     a = 0
     while a == 0 or a == None or a == '':
