@@ -9,4 +9,4 @@ def ask_choice(message, option):
         for i in range(len(options):
             a = input(message)
     return options[int(a)-1]
-f = ask_choice("Select an option:", ["Option 1", "Option 2", "Option 3"])
+f = ask_choice("Select an option:", ["Option 1", "Option 2", "Option 3"])x
