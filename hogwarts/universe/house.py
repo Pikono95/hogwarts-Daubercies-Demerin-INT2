@@ -1,5 +1,4 @@
-from root.utils.input_utils import *
-
+from hogwarts.utils import input_utils
 def update_house_point(houses,houses_name,points):
     if houses_name in houses == True:
         houses[houses_name] += points
@@ -34,4 +33,5 @@ def assign_house(character, house_name):
     for i in range(len(questions)):
         print(questions[i][0])
         choic
+
 
