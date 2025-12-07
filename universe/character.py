@@ -18,3 +18,11 @@ def display_character(character):
     print("Attributes:")
     for attr, value in character["Attributes"].items():
         print("  {}: {}".format(attr, value))
+
+def modify_money(character,amount):
+    character["Money"] += amount
+    return character["Money"]
+
+def add_item(character,item):
+    character["Inventory"].append(item)
+    return character["Inventory"]
