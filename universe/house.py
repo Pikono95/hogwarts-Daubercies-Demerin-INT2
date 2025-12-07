@@ -1,4 +1,5 @@
-from input_utils import ask_choices
+from root.utils.input_utils import *
+
 def update_house_point(houses,houses_name,points):
     if houses_name in houses == True:
         houses[houses_name] += points
