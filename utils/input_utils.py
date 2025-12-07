@@ -15,10 +15,10 @@ def ask_choice(message, option):
         a = int(input()) 
     return option[a-1]
 
-def ask_number(rep,maxi = None,mini = None):
+def ask_number(rep,maxi,mini):
     numb = int(input(rep))
-    if maxi = None and mini = None:
-        while numb < mimi or numb > maxi:
+    if maxi and mini:
+        while numb < mini or numb > maxi:
             print("Please enter a number between ",mini," and ",maxi,".")
             numb = int(input(rep))
     return numb
