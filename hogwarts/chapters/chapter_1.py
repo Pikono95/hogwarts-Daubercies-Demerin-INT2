@@ -1,5 +1,5 @@
-import * from universe.character.py
-import * from utils.input_utils.py
+import * from hogwarts.universe.character.py
+import * from hogwarts.utils.input_utils.py
 
 def introduction():
     print("Welcome to the harry poter universe, player!")
@@ -23,4 +23,19 @@ def recieve_letter(character):
     print("An owl flies through the window and falls down but it quickly come back up, delivering a letter sealed with the Hogwarts crest...")
     a = input("read it ? (Press enter)")
     print(f"Dear {character["First name"]},\nWe are pleased to inform you that you have been accepted at Hogwarts School of Witchcraft and Wizardry !")
-    a = 
+    a = ask_choice("Do you accept the invatation to hogwarts ?",["Yes","No"])
+    if a == "Yes":
+        print("*Your uncle comes up to you*")
+        print("Uncle : What are you doing reading that rubbish ? they are juste going to do experiments on you like they did with your parents ! \n" \
+        "they work with the CIA to make humanaty theirs slaves")
+        a = input("Continue ? (Press enter)")
+        print(f"You : *ignoring him* I am going to Hogwarts Uncle, I have to go !")
+        print("Uncle : i don't care anyway, go where you want, you are not getting a single galleon from me anymore !")
+    if a == "No":
+        print("You decide to ignore the letter, your uncle seems pleased by your decision.")
+        print("Uncle : good choice, they are evil trying to subdue humanity !")
+        print("The end.")
+        exit()
+    
+def meet_hagrid(character):
+    
