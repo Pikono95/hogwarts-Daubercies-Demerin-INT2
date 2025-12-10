@@ -1,4 +1,8 @@
-from hogwarts.utils import input_utils
+import sys
+import os
+hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(hogwarts_root)
+import utils.input_utils as u
 def update_house_point(houses,houses_name,points):
     if houses_name in houses == True:
         houses[houses_name] += points
@@ -32,6 +36,5 @@ questions = [
 def assign_house(character, house_name):
     for i in range(len(questions)):
         print(questions[i][0])
-        choic
 
-
+u.ask_text("AAAAA")

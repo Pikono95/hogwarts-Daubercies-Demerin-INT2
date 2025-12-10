@@ -1,4 +1,8 @@
 import json
+import sys
+import os
+hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(hogwarts_root)
 
 def ask_text(text):
     a = 0

@@ -1,3 +1,7 @@
+import sys
+import os
+hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.append(hogwarts_root)
 def init_character():
     character = {
         "Last Name": None,
