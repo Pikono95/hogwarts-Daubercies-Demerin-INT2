@@ -1,5 +1,5 @@
-import * from hogwarts.universe.character.py
-import * from hogwarts.utils.input_utils.py
+from hogwarts.universe import character
+from hogwarts.utils import input_utils
 
 def introduction():
     print("Welcome to the harry poter universe, player!")
@@ -38,25 +38,26 @@ def recieve_letter(character):
         exit()
     
 def meet_hagrid(character):
+    print("On the day of your birthday a giant of a man bursts through the door !")
+    a = input("Continue ? (Press enter)")       
+    print(f"Hello {character["First name"]} ! I’m here to help you with your shopping on Diagon Alley.")
+    a = ask_choice("Do you want to follow hagrid ?",["Yes","No"])
+    if a == "Yes":
+        print("Hagrid : Follow me, we have a lot to do today !")
+        print("*You follow Hagrid out of the house and into the streets*")
+    if a == "No":
+        print("*Hagrid has some very convesing arguments so you follow him anyway*")
+
 
 def buy_supplies(character):
     print("Catalog of available items:")
-    catalog={
-    "1": ["Magic Wand", 35, "Galleons (required)"],
-    "2": ["Wizard Robe", 20, "Galleons (required)"],
-    "3": ["Tin Cauldron", 15, "Galleons"],
-    "4": ["Potions Book", 25, "Galleons (required)"],
-    "5": ["Magic Quill", 5, "Galleons"],
-    "6": ["Enchanted Book", 30, "Galleons"],
-    "7": ["Copper Scale", 10, "Galleons"],
-    "8": ["Invisibility Cloak", 100, "Galleons"]
-    }
+    catalog = load_file("hogwarts/data/inventory.json")
     for i in catalog:
         print(f"- {catalog[i][0]} : {catalog[i][1]} {catalog[i][2]}")
     while "1" not in character["Inventory"] or "2" not in character["Inventory"] or "4" not in character["Inventory"]:
         print(f"You have {character["Money"]} Galleons.\nRemaining required items :")
         for i in catalog:
-            if catalog[i][2] == "Galleons (required)" and i not in character["Inventory"]:
+            if f"{i}" in "124" and i not in character["Inventory"]:
                 print(f"- {catalog[i][0]}", end='')
         a=input("\nEnter the number of the item to buy:")
         if character["Money"]-catalog[a][1] > 0:
@@ -66,4 +67,14 @@ def buy_supplies(character):
         else:
             print(f"You have {character["Money"]} Galleons. You can't buy it\n")
 
+def start_chapter_1():
+    introduction()
+    chara = create_character()
+    recieve_letter(chara)
+    meet_hagrid(chara)
+    buy_supplies(chara)
+    print("You have completed Chapter 1!, you are now ready to go to hogwarts!")
+    return chara
+
+start_chapter_1()
     
