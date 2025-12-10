@@ -1,6 +1,10 @@
-python -m hogwarts.chapters.chapter_1
-from hogwarts.utils.input_utils import *
-from hogwarts.universe.character import *
+import sys
+import os
+hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, hogwarts_root)
+    
+from utils.input_utils import *
+from universe.character import *
 
 def introduction():
     print("Welcome to the harry poter universe, player!")
@@ -13,17 +17,17 @@ def create_character():
     chara = init_character() 
     chara["First Name"] = ask_text("What is your first name? ")
     chara["Last Name"] = ask_text("What is your last name? ")
-    chara["attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",1,10)
-    chara["attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",1,10)
-    chara["attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",1,10)
-    character["attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",1,10)
+    chara["Attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",10,1)
+    chara["Attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",10,1)
+    chara["Attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",10,1)
+    chara["Attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",10,1)
     display_character(chara)
     return chara
 
 def recieve_letter(character):
     print("An owl flies through the window and falls down but it quickly come back up, delivering a letter sealed with the Hogwarts crest...")
     a = input("read it ? (Press enter)")
-    print(f"Dear {character["First name"]},\nWe are pleased to inform you that you have been accepted at Hogwarts School of Witchcraft and Wizardry !")
+    print(f"Dear {str(character['First Name'])},\nWe are pleased to inform you that you have been accepted at Hogwarts School of Witchcraft and Wizardry !")
     a = ask_choice("Do you accept the invatation to hogwarts ?",["Yes","No"])
     if a == "Yes":
         print("*Your uncle comes up to you*")
@@ -40,8 +44,8 @@ def recieve_letter(character):
     
 def meet_hagrid(character):
     print("On the day of your birthday a giant of a man bursts through the door !")
-    a = input("Continue ? (Press enter)")       
-    print(f"Hello {character["First name"]} ! I’m here to help you with your shopping on Diagon Alley.")
+    a = input("Continue ? (Press enter)")
+    print(f"Hello {character["First Name"]} ! I'm here to help you with your shopping on Diagon Alley.")
     a = ask_choice("Do you want to follow hagrid ?",["Yes","No"])
     if a == "Yes":
         print("Hagrid : Follow me, we have a lot to do today !")
@@ -54,19 +58,32 @@ def buy_supplies(character):
     print("Catalog of available items:")
     catalog = load_file("hogwarts/data/inventory.json")
     for i in catalog:
-        print(f"- {catalog[i][0]} : {catalog[i][1]} {catalog[i][2]}")
-    while "1" not in character["Inventory"] or "2" not in character["Inventory"] or "4" not in character["Inventory"]:
+        print(f"- {catalog[i][0]} : {catalog[i][1]} Galleons")
+    while catalog["1"][0] not in character["Inventory"] or catalog["2"][0] not in character["Inventory"] or catalog["4"][0] not in character["Inventory"]:
         print(f"You have {character["Money"]} Galleons.\nRemaining required items :")
         for i in catalog:
-            if f"{i}" in "124" and i not in character["Inventory"]:
-                print(f"- {catalog[i][0]}", end='')
-        a=input("\nEnter the number of the item to buy:")
-        if character["Money"]-catalog[a][1] > 0:
-            character["Inventory"].append(a)
+            if f"{i}" in "124" and catalog[i][0] not in character["Inventory"]:
+                print(f"- {catalog[i][0]}")
+        a=input("Enter the number of the item to buy:")
+        if character["Money"]-catalog[f"{a}"][1] > 0:
+            character["Inventory"].append(catalog[str(a)][0])
             character["Money"] -= catalog[a][1]
             print(f"You bought: {catalog[a][0]} (- {catalog[a][1]} Galleons).\n")
         else:
             print(f"You have {character["Money"]} Galleons. You can't buy it\n")
+    print("All required items have been purchased!")
+    print("It's time to choose your Hogwarts pet!")
+    print(f"You have {character["Money"]} Galleons")
+    print("Available pets:")
+    catalog = {"1": ["Owl", 20], "2": ["Cat", 15],"3":["Rat", 10], "4": ["Toad", 5]}
+    for i in catalog:
+        print(f"- {catalog[i][0]} : {catalog[i][1]} Galleons")
+    a = ask_choice("Which pet do you want to buy ?",["Owl","Cat","Rat","Toad"])
+    character["Inventory"].append(a)
+    character["Money"] -= catalog[[k for k,v in catalog.items() if v[0]==a][0]][1]
+    print(f"You bought a {a}! (- {catalog[[k for k,v in catalog.items() if v[0]==a][0]][1]} Galleons)")
+    print("All required items have been successfully purchased! Here is your final inventory:")
+    display_character(character)
 
 def start_chapter_1():
     introduction()
@@ -76,6 +93,3 @@ def start_chapter_1():
     buy_supplies(chara)
     print("You have completed Chapter 1!, you are now ready to go to hogwarts!")
     return chara
-
-start_chapter_1()
-    
