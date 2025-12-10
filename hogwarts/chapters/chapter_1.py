@@ -1,5 +1,6 @@
-from hogwarts.universe import character
-from hogwarts.utils import input_utils
+python -m hogwarts.chapters.chapter_1
+from hogwarts.utils.input_utils import *
+from hogwarts.universe.character import *
 
 def introduction():
     print("Welcome to the harry poter universe, player!")
@@ -15,7 +16,7 @@ def create_character():
     chara["attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",1,10)
     chara["attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",1,10)
     chara["attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",1,10)
-    character["attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",1,10)*
+    character["attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",1,10)
     display_character(chara)
     return chara
 
