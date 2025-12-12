@@ -3,13 +3,14 @@ import os
 hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(hogwarts_root)
 import utils.input_utils as u
+
 def update_house_point(houses,houses_name,points):
     if houses_name in houses == True:
         houses[houses_name] += points
     else :
         print("The house name isn't valid")
     
-houses = {"Gryffindor": 5,
+houses = {"Gryffindor": 0,
           "Hufflepuff": 0,
             "Ravenclaw": 0,
             "Slytherin": 0}
@@ -33,8 +34,14 @@ questions = [
  "Analyze the problem"],
 ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"])]
 
-def assign_house(character, house_name):
-    for i in range(len(questions)):
-        print(questions[i][0])
-
-u.ask_text("AAAAA")
+def assign_house(character, questions):
+    house = {"Gryffindor": character["Attributes"]["Bravery"]*2,"Slytherin": character["Attributes"]["Ambition"]*2,"Hufflepuff": character["Attributes"]["Loyalty"]*2,"Ravenclaw": character["Attributes"]["Intelligence"]*2}
+    for i in range(0,len(questions),3):
+        answer = ask_choice(questions[i], questions[i+1])
+        house_name = questions[i+2][questions[i+1].index(answer)]
+        house[house_name] += 3
+    print("sumary of scores :")
+    for h in house:
+        print(f"{h} : {house[h]} points")
+    assigned_house = max(house, key=house.get)
+    return assigned_house        
