@@ -15,7 +15,7 @@ def ask_choice(message, option):
     while a == 0:
         print(message, end='\n')
         for i in range(len(option)):
-            print(str(i+1)+". "+option[i])
+            print(str(i+1)+". "+str(option[i]))
         a = int(input()) 
     return option[a-1]
 
