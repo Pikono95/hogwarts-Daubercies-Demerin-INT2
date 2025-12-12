@@ -5,6 +5,8 @@ sys.path.insert(0, hogwarts_root)
     
 from utils.input_utils import *
 from universe.character import *
+from hogwarts.utils.input_utils import *
+from hogwarts.universe.character import *
 
 def introduction():
     print("Welcome to the harry poter universe, player!")
@@ -17,10 +19,10 @@ def create_character():
     chara = init_character() 
     chara["First Name"] = ask_text("What is your first name? ")
     chara["Last Name"] = ask_text("What is your last name? ")
-    chara["Attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",10,1)
-    chara["Attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",10,1)
-    chara["Attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",10,1)
-    chara["Attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",10,1)
+    chara["attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",1,10)
+    chara["attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",1,10)
+    chara["attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",1,10)
+    chara["attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",1,10)
     display_character(chara)
     return chara
 
@@ -93,3 +95,4 @@ def start_chapter_1():
     buy_supplies(chara)
     print("You have completed Chapter 1!, you are now ready to go to hogwarts!")
     return chara
+
