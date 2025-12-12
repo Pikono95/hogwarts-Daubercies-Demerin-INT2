@@ -45,6 +45,10 @@ questions = [
 ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"])]
 
 def assign_house(character,questions):
+    print("Entering the hall you see the sorting hat on a chair on the pedestal.")
+    a = input("Continue ? (Press enter)")
+    print("The hat is placed on your head, you feel it analyzing your mind...")
+    b = input("Continue ? (Press enter)")
     score_house = {"Gryffindor": character["Attributes"]["Bravery"]*2, "Hufflepuff": character["Attributes"]["Loyalty"]*2,"Ravenclaw": character["Attributes"]["Intelligence"]*2, "Slytherin": character["Attributes"]["Ambition"]*2}
     for i in range(len(questions)):
         print(questions[i][0])
