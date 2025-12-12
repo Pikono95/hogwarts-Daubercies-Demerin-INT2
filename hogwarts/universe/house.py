@@ -19,7 +19,12 @@ def update_house_point(houses,houses_name,points):
         houses[houses_name] += points
     else :
         print("The house name isn't valid")
-
+    
+houses = {"Gryffindor": 5,
+          "Hufflepuff": 0,
+            "Ravenclaw": 0,
+            "Slytherin": 0}
+    
 def display_winning_house(houses):
     winning_house = max(houses, key=houses.get)
     print("The house that is winning is", winning_house, "with", houses[winning_house], "points")
