@@ -93,3 +93,4 @@ def start_chapter_1():
     buy_supplies(chara)
     print("You have completed Chapter 1!, you are now ready to go to hogwarts!")
     return chara
+

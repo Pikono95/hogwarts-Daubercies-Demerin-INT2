@@ -2,18 +2,20 @@ import sys
 import os
 hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(hogwarts_root)
+
 import utils.input_utils as u
+from universe.character import *
+
+
+
+houses = {"Gryffindor": 0,"Hufflepuff": 0,"Ravenclaw": 0,"Slytherin": 0}
+
 def update_house_point(houses,houses_name,points):
-    if houses_name in houses == True:
+    if houses_name in houses.keys():
         houses[houses_name] += points
     else :
         print("The house name isn't valid")
-    
-houses = {"Gryffindor": 5,
-          "Hufflepuff": 0,
-            "Ravenclaw": 0,
-            "Slytherin": 0}
-    
+
 def display_winning_house(houses):
     winning_house = max(houses, key=houses.get)
     print("The house that is winning is", winning_house, "with", houses[winning_house], "points")
@@ -34,7 +36,5 @@ questions = [
 ["Gryffindor", "Slytherin", "Hufflepuff", "Ravenclaw"])]
 
 def assign_house(character, house_name):
-    for i in range(len(questions)):
-        print(questions[i][0])
-
-u.ask_text("AAAAA")
+    score_house =  {"Gryffindor": character["Attribute"]["Bravery"]*2,"Hufflepuff": 0,"Ravenclaw": 0,"Slytherin": 0}
+    print(score_house)
