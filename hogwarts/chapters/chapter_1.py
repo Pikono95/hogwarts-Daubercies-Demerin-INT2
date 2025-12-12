@@ -22,7 +22,7 @@ def create_character():
     chara["attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",1,10)
     chara["attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",1,10)
     chara["attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",1,10)
-    character["attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",1,10)
+    chara["attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",1,10)
     display_character(chara)
     return chara
 
