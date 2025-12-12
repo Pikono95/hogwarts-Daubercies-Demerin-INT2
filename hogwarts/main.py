@@ -10,4 +10,4 @@ from chapters.chapter_4 import *
 from universe.character import *
 from universe.house import *
 
-start_chapter_1()
+menu()
