@@ -36,7 +36,7 @@ def meet_friends(character):
         input("You and Hermione have a brief conversation before she returns to her seat. You've lost 2 Intelligence points. (Press enter)")
     #hermione
     #drago
-    b = ask_choice("I'm Draco Malfoy, It's best to choose your friends carefully from the start, don't you think ?",["Shake his hand politely"],["Ignore him completely"],["Respond with arrogance"])
+    b = ask_choice("I'm Draco Malfoy, It's best to choose your friends carefully from the start, don't you think ?",(["Shake his hand politely"],["Ignore him completely"],["Respond with arrogance"]))
     if b == "Shake his hand politely":
         print("Draco : Hmph, we'll see about that.")
         character["Attributes"]["Ambition"] += 1
@@ -47,8 +47,8 @@ def meet_friends(character):
         input("Ignoring Draco shows loyalty to your own choices and friends. (Press enter)")
     else:
         print("Draco : Interesting response.")
-        character["Attributes"]["Courage"] += 1
-        input("Responding arrogantly demonstrates courage in the face of a conflictual situation. You've gained 2 Ambition points. (Press enter)")
+        character["Attributes"]["Bravery"] += 1
+        input("Responding arrogantly demonstrates courage in the face of a conflictual situation. You've gained 1 Bravery point. (Press enter)")
     #drago
 def start_chapter_2(character):
     meet_friends(character)
