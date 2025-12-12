@@ -6,6 +6,7 @@ sys.path.insert(0, hogwarts_root)
     
 from utils.input_utils import *
 from universe.character import *
+from universe.house import *
 
 def learn_spells(character):
     print("You begin your magic lessons at Hogwarts !")
@@ -34,6 +35,18 @@ def learn_spells(character):
         print(f"- {character['Spells'][i]['name']} ({character['Spells'][i]['type']}) : {character['Spells'][i]['description']}")
 
 def magic_quiz(character):
-    
+    print("Welcome to the magic quiz!")
+    print("Answer the 4 questions correctly to earn point for your house.")
+    total_points = 0
+    for i in range(4):
+        question = load_file('hogwarts/data/magic_quiz.json')[i]
+        print(f"{i+1}. {question['question']}")
+        choice = input("> ")
+        if choice == question['answer']:
+            print("Correct answer ! +25 points for your house.")
+            update_house_point(houses, character['House'], 25)
+            total_points += 25
+        else:
+            print(f"Wrong! The correct answer was: {question['answer']}")
+    print("score obtained in the quiz:", total_points, " points")
 
-learn_spells(init_character())
