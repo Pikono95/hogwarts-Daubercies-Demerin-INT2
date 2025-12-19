@@ -74,4 +74,3 @@ def start_chapter_2(character):
     print("You have completed Chapter 2!, you are now ready for your first day at hogwarts!")
     return character
 
-start_chapter_2(character)
