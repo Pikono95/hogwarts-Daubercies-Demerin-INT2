@@ -2,6 +2,8 @@ import sys
 import os
 hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(hogwarts_root)
+
+
 def init_character():
     character = {
         "Last Name": None,
@@ -18,7 +20,7 @@ def display_character(character):
     print("Name: {} {}".format(character["First Name"], character["Last Name"]))
     print("Money: {}".format(character["Money"]))
     print("Inventory: {}".format(", ".join(character["Inventory"]) if character["Inventory"] else "Empty"))
-    print("Spells: {}".format(", ".join(character["Spells"]) if character["Spells"] else "None"))
+    print("Spells: {}".format(", ".join(spell["name"] for spell in character.get("Spells", [])) or "None"))
     print("Attributes:")
     for attr, value in character["Attributes"].items():
         print("  {}: {}".format(attr, value))

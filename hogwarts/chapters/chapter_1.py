@@ -17,10 +17,10 @@ def create_character():
     chara = init_character() 
     chara["First Name"] = ask_text("What is your first name? ")
     chara["Last Name"] = ask_text("What is your last name? ")
-    chara["attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",1,10)
-    chara["attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",1,10)
-    chara["attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",1,10)
-    chara["attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",1,10)
+    chara["Attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",10,1)
+    chara["Attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",10,1)
+    chara["Attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",10,1)
+    chara["Attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",10,1)
     display_character(chara)
     return chara
 
@@ -58,7 +58,7 @@ def buy_supplies(character):
     print("Catalog of available items:")
     catalog = load_file("hogwarts/data/inventory.json")
     for i in catalog:
-        print(f"- {catalog[i][0]} : {catalog[i][1]} Galleons")
+        print(f"{i}. {catalog[i][0]} : {catalog[i][1]} Galleons")
     while catalog["1"][0] not in character["Inventory"] or catalog["2"][0] not in character["Inventory"] or catalog["4"][0] not in character["Inventory"]:
         print(f"You have {character["Money"]} Galleons.\nRemaining required items :")
         for i in catalog:
