@@ -7,6 +7,7 @@ sys.path.insert(0, hogwarts_root)
 from utils.input_utils import *
 from universe.character import *
 from universe.house import *
+from random import randint 
 
 def learn_spells(character):
     print("You begin your magic lessons at Hogwarts !")
@@ -39,14 +40,26 @@ def magic_quiz(character):
     print("Answer the 4 questions correctly to earn point for your house.")
     total_points = 0
     for i in range(4):
-        question = load_file('hogwarts/data/magic_quiz.json')[i]
+        j = random.randint(0, len(load_file('hogwarts/data/magic_quiz.json')) - 1)
+        question = load_file('hogwarts/data/magic_quiz.json')[j]
         print(f"{i+1}. {question['question']}")
         choice = input("> ")
         if choice == question['answer']:
             print("Correct answer ! +25 points for your house.")
-            update_house_point(houses, character['House'], 25)
             total_points += 25
         else:
             print(f"Wrong! The correct answer was: {question['answer']}")
     print("score obtained in the quiz:", total_points, " points")
+    return total_points
 
+def start_chapter_3(character,houses):
+    learn_spells(character)
+    score = magic_quiz(character)
+    update_house_point(houses, character['House'], score)
+    display_winning_house(houses)
+    display_character(character)
+    return character
+
+chara = init_character()
+chara['House'] = 'Gryffindor'
+start_chapter_3(chara)
