@@ -1,5 +1,6 @@
 import sys
 import os
+import json
 hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, hogwarts_root)
     
@@ -7,6 +8,8 @@ from utils.input_utils import *
 from universe.house import *
 from universe.character import *
 from chapters.chapter_1 import *
+
+character["House"] = "Gryffindor"  # Example assignment, this would be set based on sorting logic
 
 def meet_friends(character):
     #ron
@@ -50,9 +53,25 @@ def meet_friends(character):
         character["Attributes"]["Bravery"] += 1
         input("Responding arrogantly demonstrates courage in the face of a conflictual situation. You've gained 1 Bravery point. (Press enter)")
     #drago
+
+with open('hogwarts/data/houses.json', 'r', encoding='utf-8') as faa:
+    faa = json.load(faa)
+
+def enter_comon_room(character):
+    print("You arrive at your common room, the atmosphere is lively with students chatting and studying.")
+    input("Press enter to continue...")
+    print("You find a cozy spot and settle in, ready to embark on your Hogwarts journey.")
+    input("Press enter to continue...")
+    print("your house color are " + faa[character["House"]]["colors"][0] + " and " + faa[character["House"]]["colors"][1] + " !")
+
 def start_chapter_2(character):
     meet_friends(character)
     assign_house(character,questions)
-    
+    enter_comon_room(character)
+    print("You've come far here is the recap of the stats of your character so far :")
+    for keys in character:
+        print(f"{keys} : {character[keys]}")
+    print("You have completed Chapter 2!, you are now ready for your first day at hogwarts!")
+    return character
 
 start_chapter_2(character)
