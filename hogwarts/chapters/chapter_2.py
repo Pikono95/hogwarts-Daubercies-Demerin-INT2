@@ -55,4 +55,3 @@ def start_chapter_2(character):
     assign_house(character,questions)
     
 
-start_chapter_2(character)

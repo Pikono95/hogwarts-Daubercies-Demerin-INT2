@@ -59,7 +59,3 @@ def start_chapter_3(character,houses):
     display_winning_house(houses)
     display_character(character)
     return character
-
-chara = init_character()
-chara['House'] = 'Gryffindor'
-start_chapter_3(chara)
