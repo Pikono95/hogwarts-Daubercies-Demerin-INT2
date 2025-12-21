@@ -16,8 +16,17 @@ def ask_choice(message, option):
         print(message, end='\n')
         for i in range(len(option)):
             print(str(i+1)+". "+str(option[i]))
-        a = int(input()) 
-    return option[a-1]
+        a = input() 
+        b = ''
+        for i in range(10**len(a)):
+            b += str(i)
+        if a.isascii() == True and a not in b:  
+            print("Please choose a valid option.")
+            a = 0
+        elif int(a) < 1 or int(a) > len(option):
+            print("Please choose a valid option.")
+            a = 0
+    return option[int(a)-1]
 
 def ask_number(rep,maxi = None,mini = None):
     numb = int(input(rep))

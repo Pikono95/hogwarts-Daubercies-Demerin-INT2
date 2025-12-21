@@ -6,12 +6,55 @@ sys.path.insert(0, hogwarts_root)
 from utils.input_utils import *
 from universe.character import *
 
+
+hogwarts_draw = [
+"                                           :                                                                                 ",
+"                                         .@@=                                                                                ",
+"                                        :@@%@=                                      .=                                       ",
+"                                       =@%  %@-                        +=          *@   *@@:                                 ",
+"                                      *@%    *@=                        =@#+     +@@.  .=@*:                 *@%+.           ",
+"                                     #@+      %@-                      =::*%=#:=@@@*     .                   -@@:            ",
+"                                   .@@=        *@=                      #@@@++%@@@@.                                          ",
+"             #=                   :@@:          %@-                    :@@@+-#@@@@@@@@@*:                                    ",
+"            +@@-  =.             =@@.            #@=                      *+@@@@@@@@@@@%=:          :%+       -              ",
+"           :@@@%..%@:           *@#               #@-                     *-@@@@@@@-                .@+:+=*%@#-              ",
+"           #@.-@#*@%@.         %@*                 #@-                  .%@@@#*@@@%                 .@@= *@% =    -@@+       ",
+"          =@-  -@@: #@:       @@+                   %@-                -@#:    +@@*   .             *-#@=%- .-   :#@@%.      ",
+"         :@#    ::   *@.    .*@@@@+                #@@@:                        #@+   .@=*=      .+: :=+#*@@@@:    -.        ",
+"         *@:          +@:       -@#    *@#   *@#   #@+                           *-  :%@@@:      -*%@@%::@: -#@=              ",
+"        -@=   ##.      +@       -@#    *@#   *@#   *@+                            .    :@.            = =@@@%#*+-            ",
+"       .@#   .%%.    .#@@@:     :@@%-              +@+                                  .             ::*@=@@.                ",
+"       *@-    #%.    =@@:       :@@++=             +@*                                                 +*. =@%.               ",
+"      :@+          .%@@@: +@@. #@@@=-:           %@@@# .%@. =@#                                    +-       +@@.              ",
+"     .@@@%%#+.       .@@@%@@@%%@@@#                -@@@@@@@@@@@@%                               -%@@@=       *@%              ",
+"      :-=*#@@.        ............                 .+++++++++++==                                =@@@#.       #@%.           ",
+"           %@@%      :====  +@@@+                                           .*+ -   +@:          ##+%-         #@#           ",
+"           @@.       :@@@@  =@@@=             %=.*                  -@@+    *@@@@#=@@@#=                       .%:-:         ",
+"           @#:       .@@@@  =@@@=           .%@=@@@#  *##      =*+.=@%=%@+  +@@=@%-=@@*.    .:                  :@@@.        ",
+"          :@+        .%@@@  =@@@=  :+@#@#. -@@%  @@#  #@@. .*  *@@: .  #@#  +@@    -@@=   .#@@+                  +@@@:       ",
+"          =@=         %@@@  =@@@@@@@@+ #@% =@@#  @@#  #@@. @@  *@@: .% #@%  =@%    -@@=  %@# +@:                  #@@@.      ",
+"          +@-      *-.@@@@. =@@@+ *@@+ +@% -@@*  %@#  #@@. @@. *@@-%@@.#@@  =@@    -@@=  .%@@-.                    #@@@:     ",
+"          #@:      :#@@@@@%%%@@@+ +@@+ +@@ :@@= :@@#  #@@.:@@. #@= =@@:#@@. +@@:   -@@-    #@@#                    .%@@-     ",
+"          %@.         %@@@. =@@@+ =@@+ +@@  %@@@=%@#  +@@#@@@#@@.   #@@@@*  ==-.   -@@- .%@.+@@*                              ",
+"          @@.         %@@@. =@@@*  =@@ *@@.   .  %@#   .%@:  %*        ..          -@@:  :@@@@+                               ",
+"         .@@.         %@@@. =@@@*    =#-         %@#                               :@@+   :@=                                 ",
+"         :@%         .%@@@: =@@@*           :#.  @@*                                  .                                       ",
+"         :@%                +@@@#          =@@+-@*                                                                           ",
+"         -@%                                =@@=                                                                              ",
+"         =@#                                 .                                                                                ",
+"         #@#                                                                                                                  ",
+"       :-.                                                                                                                    "
+]
+
+
 def introduction():
-    print("Welcome to the harry poter universe, player!")
+    for line in hogwarts_draw:
+        print(line)
+    print("Welcome to the Harry Potter universe, player!")
     a = input("Continue? (Press enter)")
-    print("You find yourself in a small room with your lovely familly composed of your conspirationist oncle and your spoiled brat couzin")
+    print("You find yourself in a small room with your lovely family composed of your conspiracy theorist uncle and your spoiled brat cousin")
     a = input("Continue? (Press enter)")
-    print( "in short, you are livling the dream")
+    print("In short, you are living the dream")
 
 def create_character():
     chara = init_character() 
@@ -24,34 +67,34 @@ def create_character():
     display_character(chara)
     return chara
 
-def recieve_letter(character):
-    print("An owl flies through the window and falls down but it quickly come back up, delivering a letter sealed with the Hogwarts crest...")
-    a = input("read it ? (Press enter)")
-    print(f"Dear {str(character['First Name'])},\nWe are pleased to inform you that you have been accepted at Hogwarts School of Witchcraft and Wizardry !")
-    a = ask_choice("Do you accept the invatation to hogwarts ?",["Yes","No"])
+def receive_letter(character):
+    print("An owl flies through the window and falls down but it quickly comes back up, delivering a letter sealed with the Hogwarts crest...")
+    a = input("Read it? (Press enter)")
+    print(f"Dear {str(character['First Name'])},\nWe are pleased to inform you that you have been accepted at Hogwarts School of Witchcraft and Wizardry!")
+    a = ask_choice("Do you accept the invitation to Hogwarts?", ["Yes", "No"])
     if a == "Yes":
         print("*Your uncle comes up to you*")
-        print("Uncle : What are you doing reading that rubbish ? they are juste going to do experiments on you like they did with your parents ! \n" \
-        "they work with the CIA to make humanaty theirs slaves")
-        a = input("Continue ? (Press enter)")
-        print(f"You : *ignoring him* I am going to Hogwarts Uncle, I have to go !")
-        print("Uncle : i don't care anyway, go where you want, you are not getting a single galleon from me anymore !")
+        print("Uncle: What are you doing reading that rubbish? They're just going to do experiments on you like they did with your parents!\n"
+              "They work with the CIA to make humanity their slaves.")
+        a = input("Continue? (Press enter)")
+        print(f"You: *ignoring him* I am going to Hogwarts, Uncle, I have to go!")
+        print("Uncle: I don't care anyway, go where you want, you are not getting a single galleon from me anymore!")
     if a == "No":
-        print("You decide to ignore the letter, your uncle seems pleased by your decision.")
-        print("Uncle : good choice, they are evil trying to subdue humanity !")
+        print("You decide to ignore the letter; your uncle seems pleased by your decision.")
+        print("Uncle: Good choice, they are evil trying to subdue humanity!")
         print("The end.")
         exit()
     
 def meet_hagrid(character):
-    print("On the day of your birthday a giant of a man bursts through the door !")
-    a = input("Continue ? (Press enter)")
-    print(f"Hello {character["First Name"]} ! I'm here to help you with your shopping on Diagon Alley.")
-    a = ask_choice("Do you want to follow hagrid ?",["Yes","No"])
+    print("On the day of your birthday a giant of a man bursts through the door!")
+    a = input("Continue? (Press enter)")
+    print(f"Hello {character['First Name']}! I'm here to help you with your shopping on Diagon Alley.")
+    a = ask_choice("Do you want to follow Hagrid?", ["Yes", "No"])
     if a == "Yes":
-        print("Hagrid : Follow me, we have a lot to do today !")
+        print("Hagrid: Follow me, we have a lot to do today!")
         print("*You follow Hagrid out of the house and into the streets*")
     if a == "No":
-        print("*Hagrid has some very convesing arguments so you follow him anyway*")
+        print("*Hagrid has some very convincing arguments so you follow him anyway*")
 
 
 def buy_supplies(character):
@@ -86,11 +129,11 @@ def buy_supplies(character):
     display_character(character)
 
 def start_chapter_1():
+    print("============ Chapter 1: Arrival in the Magical World ============")
     introduction()
     chara = create_character()
-    recieve_letter(chara)
+    receive_letter(chara)
     meet_hagrid(chara)
     buy_supplies(chara)
-    print("You have completed Chapter 1!, you are now ready to go to hogwarts!")
+    print("======================== END of Chapter 1 ========================","\n")
     return chara
-

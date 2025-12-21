@@ -53,9 +53,11 @@ def magic_quiz(character):
     return total_points
 
 def start_chapter_3(character,houses):
+    print("============ Chapter 3: Learning Magic and Magic Quiz ============")
     learn_spells(character)
     score = magic_quiz(character)
     update_house_point(houses, character['House'], score)
     display_winning_house(houses)
     display_character(character)
+    print("=======================  End of Chapter 3 ========================",'\n')
     return character

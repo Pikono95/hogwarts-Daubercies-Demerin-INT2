@@ -17,7 +17,8 @@ def init_character():
 
 def display_character(character):
     print("Character Information:")
-    print("Name: {} {}".format(character["First Name"], character["Last Name"]))
+    print("First Name: {} ".format(character["First Name"]))
+    print("Last Name: {} ".format(character["Last Name"]))
     print("Money: {}".format(character["Money"]))
     print("Inventory: {}".format(", ".join(character["Inventory"]) if character["Inventory"] else "Empty"))
     print("Spells: {}".format(", ".join(spell["name"] for spell in character.get("Spells", [])) or "None"))

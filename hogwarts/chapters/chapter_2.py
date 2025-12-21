@@ -39,7 +39,7 @@ def meet_friends(character):
         input("You and Hermione have a brief conversation before she returns to her seat. You've lost 2 Intelligence points. (Press enter)")
     #hermione
     #drago
-    b = ask_choice("I'm Draco Malfoy, It's best to choose your friends carefully from the start, don't you think ?",(["Shake his hand politely"],["Ignore him completely"],["Respond with arrogance"]))
+    b = ask_choice("I'm Draco Malfoy, It's best to choose your friends carefully from the start, don't you think ?",["Shake his hand politely","Ignore him completely","Respond with arrogance"])
     if b == "Shake his hand politely":
         print("Draco : Hmph, we'll see about that.")
         character["Attributes"]["Ambition"] += 1
@@ -65,12 +65,13 @@ def enter_comon_room(character):
     print("your house color are " + faa[character["House"]]["colors"][0] + " and " + faa[character["House"]]["colors"][1] + " !")
 
 def start_chapter_2(character):
+    print("============ Chapter 2: The Sorting Ceremony and Journey to Hogwarts ============")
     meet_friends(character)
     assign_house(character,questions)
     enter_comon_room(character)
     print("You've come far here is the recap of the stats of your character so far :")
     for keys in character:
         print(f"{keys} : {character[keys]}")
-    print("You have completed Chapter 2!, you are now ready for your first day at hogwarts!")
+    print("=============================  End of Chapter 2 ================================",'\n')
     return character
 
