@@ -107,11 +107,11 @@ def buy_supplies(character):
         for i in catalog:
             if f"{i}" in "124" and catalog[i][0] not in character["Inventory"]:
                 print(f"- {catalog[i][0]}")
-        a=input("Enter the number of the item to buy:")
+        a=ask_number("Enter the number of the item to buy:",len(catalog),1)
         if character["Money"]-catalog[f"{a}"][1] > 0:
             character["Inventory"].append(catalog[str(a)][0])
-            character["Money"] -= catalog[a][1]
-            print(f"You bought: {catalog[a][0]} (- {catalog[a][1]} Galleons).\n")
+            character["Money"] -= catalog[str(a)][1]
+            print(f"You bought: {catalog[str(a)][0]} (- {catalog[str(a)][1]} Galleons).\n")
         else:
             print(f"You have {character["Money"]} Galleons. You can't buy it\n")
     print("All required items have been purchased!")

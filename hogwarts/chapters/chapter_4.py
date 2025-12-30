@@ -97,6 +97,25 @@ def quiditch_match(character):
         attempt_goal(team2,team1,False)
         if golden_snitch_appears() == True and snitch == False:
             input("The golden snitch has appeared, will you catch it ?")
+            goldenball = [
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀",
+    "⠀⢸⡿⠛⠶⣦⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀",
+    "⠀⠀⢻⣿⣶⣤⣈⠙⠻⢶⣤⣀⠀⠀⠀⠀⠀⠀⠀⢙⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠻⢸⣿⣿⣿⣶⣤⣈⠛⠷⣦⣄⠀⠀⠀⠀⠈⢿⣿⣿⣿⣧⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠋⠹⡇⢿⣿⣿⣷⣦⣀⠙⠷⣦⡀⠀⠀⠀⠻⣿⣿⣿⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⢿⣿⣷⣦⡈⠛⢦⠀⠀⠀⠘⠛⠻⠀⠀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠙⠻⠂⣀⣴⣶⣿⣿⣷⣶⣤⣀⠀⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⡄⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡟⢉⣉⠙⢿⣿⣿⠿⠋⣀⠁⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⠁⣿⠛⠷⠀⣤⣤⡄⢸⡿⠁⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣷⣶⣾⣿⣿⡇⠈⠁⠀⠀",
+    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠁⠀⠀⠀⠀⠀"
+]
+            for e in goldenball:
+                print(e)
             snitch = True
             if catch_golden_snitch() == True:
                 team1['caught_snitch'] = 1
@@ -128,7 +147,7 @@ def quiditch_match(character):
 
 
 def start_chapter_4(character):
-    print("============ Chapter 4 : conclusion ============")
+    print("============ Chapter 4 : The Quidditch match  ============")
     quiditch_match(character)
     display_character(character)
-
+    print("=======================  End of Chapter 4 ========================")

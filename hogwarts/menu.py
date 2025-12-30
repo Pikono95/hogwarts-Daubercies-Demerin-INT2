@@ -23,6 +23,8 @@ def launch_menu_choice():
         character = start_chapter_1()
         start_chapter_2(character)
         start_chapter_3(character,houses)
+        start_chapter_4(character)
+        print('\n'+'Thank you for playing !')
     elif choice == 2:
         print("Exiting the game. Goodbye!")
         exit()

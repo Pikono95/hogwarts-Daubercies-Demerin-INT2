@@ -11,30 +11,32 @@ def ask_text(text):
     return a.strip()
 
 def ask_choice(message, option):
-    a = 0
-    while a == 0:
-        print(message, end='\n')
-        for i in range(len(option)):
-            print(str(i+1)+". "+str(option[i]))
-        a = input() 
-        b = ''
-        for i in range(10**len(a)):
-            b += str(i)
-        if a.isascii() == True and a not in b:  
-            print("Please choose a valid option.")
-            a = 0
-        elif int(a) < 1 or int(a) > len(option):
-            print("Please choose a valid option.")
-            a = 0
+    print(message, end='\n')
+    for i in range(len(option)):
+        print(str(i+1)+". "+str(option[i]))
+    a = ask_number("Your choice: ", len(option), 1)
     return option[int(a)-1]
 
-def ask_number(rep,maxi = None,mini = None):
-    numb = int(input(rep))
-    if maxi is not None and mini is not None:
-        while numb < mini or numb > maxi:
-            print(f"Please enter a number between {mini} and {maxi}.")
-            numb = int(input(rep))
-    return numb
+def ask_number(message, max_val=None, min_val=None):
+    user_input = 0
+    while user_input == 0:
+        user_input = input(message)
+        valid_numbers = ''
+        for number in range(10 ** len(user_input)):
+            valid_numbers += str(number)
+        if (user_input.isascii() and user_input not in valid_numbers) or user_input == '':
+            print("Please enter a valid integer.")
+            user_input = 0
+        else:
+            user_input = int(user_input)
+            if min_val is not None and user_input < min_val:
+                print(f"Please enter a number >= {min_val}.")
+                user_input = 0
+
+            elif max_val is not None and user_input > max_val:
+                print(f"Please enter a number <= {max_val}.")
+                user_input = 0
+    return user_input
 
 def load_file(file_path):
     with open(file_path, 'r') as file:
