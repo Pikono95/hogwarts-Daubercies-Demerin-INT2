@@ -4,14 +4,14 @@ hogwarts_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.append(hogwarts_root)
 
 
-def init_character():
+def init_character(last_name, first_name, attributes):
     character = {
-        "Last Name": None,
-        "First Name": None,
+        "Last Name": last_name,
+        "First Name": first_name,
         "Money": 100,
         "Inventory": [],
         "Spells": [],
-        "Attributes": {}
+        "Attributes": attributes
     }
     return character
 

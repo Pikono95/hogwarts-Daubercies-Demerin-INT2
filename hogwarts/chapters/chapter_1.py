@@ -57,13 +57,14 @@ def introduction():
     print("In short, you are living the dream")
 
 def create_character():
-    chara = init_character() 
-    chara["First Name"] = ask_text("What is your first name? ")
-    chara["Last Name"] = ask_text("What is your last name? ")
-    chara["Attributes"]["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",10,1)
-    chara["Attributes"]["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",10,1)
-    chara["Attributes"]["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",10,1)
-    chara["Attributes"]["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",10,1)
+    first_name = ask_text("What is your first name? ")
+    last_name = ask_text("What is your last name? ")
+    Attributes = {}
+    Attributes["Bravery"] = ask_number("On a scale from 1 to 10, how brave are you? ",10,1)
+    Attributes["Intelligence"] = ask_number("On a scale from 1 to 10, how intelligent are you? ",10,1)
+    Attributes["Loyalty"] = ask_number("On a scale from 1 to 10, how loyal are you? ",10,1)
+    Attributes["Ambition"] = ask_number("On a scale from 1 to 10, how ambitious are you? ",10,1)
+    chara = init_character(last_name, first_name, Attributes)
     display_character(chara)
     return chara
 
@@ -100,20 +101,29 @@ def meet_hagrid(character):
 def buy_supplies(character):
     print("Catalog of available items:")
     catalog = load_file("hogwarts/data/inventory.json")
+    mendatory_items_cost = catalog["1"][1] + catalog["2"][1] + catalog["4"][1]
+    mendatory_items = ["Magic Wand","Wizard Robe","Potions Book"]
     for i in catalog:
         print(f"{i}. {catalog[i][0]} : {catalog[i][1]} Galleons")
-    while catalog["1"][0] not in character["Inventory"] or catalog["2"][0] not in character["Inventory"] or catalog["4"][0] not in character["Inventory"]:
+    while (catalog["1"][0] not in character["Inventory"] or catalog["2"][0] not in character["Inventory"] or catalog["4"][0] not in character["Inventory"]) and character["Money"] >= mendatory_items_cost:
         print(f"You have {character["Money"]} Galleons.\nRemaining required items :")
         for i in catalog:
             if f"{i}" in "124" and catalog[i][0] not in character["Inventory"]:
                 print(f"- {catalog[i][0]}")
         a=ask_number("Enter the number of the item to buy:",len(catalog),1)
         if character["Money"]-catalog[f"{a}"][1] > 0:
+            if catalog[str(a)][0] in mendatory_items:
+                mendatory_items.remove(catalog[str(a)][0])
+                mendatory_items_cost -= catalog[str(a)][1]
             character["Inventory"].append(catalog[str(a)][0])
             character["Money"] -= catalog[str(a)][1]
             print(f"You bought: {catalog[str(a)][0]} (- {catalog[str(a)][1]} Galleons).\n")
         else:
             print(f"You have {character["Money"]} Galleons. You can't buy it\n")
+    if mendatory_items != []:
+        print("You don't have enough money to buy all the required items.")
+        print("Game over.")
+        exit()
     print("All required items have been purchased!")
     print("It's time to choose your Hogwarts pet!")
     print(f"You have {character["Money"]} Galleons")

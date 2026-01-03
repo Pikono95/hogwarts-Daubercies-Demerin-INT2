@@ -6,12 +6,6 @@ sys.path.append(hogwarts_root)
 import utils.input_utils as u
 from universe.character import *
 
-character = init_character()
-character["Attributes"]["Bravery"]= 7
-character["Attributes"]["Intelligence"]= 5
-character["Attributes"]["Loyalty"]= 6
-character["Attributes"]["Ambition"]= 4
-
 houses = {"Gryffindor": 0,"Hufflepuff": 0,"Ravenclaw": 0,"Slytherin": 0}
 
 def update_house_point(houses,houses_name,points):

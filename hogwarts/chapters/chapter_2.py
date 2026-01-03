@@ -9,8 +9,6 @@ from universe.house import *
 from universe.character import *
 from chapters.chapter_1 import *
 
-character["House"] = "Gryffindor"  # Example assignment, this would be set based on sorting logic
-
 def meet_friends(character):
     #ron
     print("You find a seat on the train, a young ginger boy approaches you.")
