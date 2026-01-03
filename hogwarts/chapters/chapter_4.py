@@ -103,7 +103,7 @@ def quiditch_match(character):
         "⠀⠀⠀⠻⢸⣿⣿⣿⣶⣤⣈⠛⠷⣦⣄⠀⠀⠀⠀⠈⢿⣿⣿⣿⣧⠀⠀⠀⠀⠀",
         "⠀⠀⠀⠀⠀⠋⠹⡇⢿⣿⣿⣷⣦⣀⠙⠷⣦⡀⠀⠀⠀⠻⣿⣿⣿⠀⠀⠀⠀⠀",
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⢿⣿⣷⣦⡈⠛⢦⠀⠀⠀⠘⠛⠻⠀⠀⠀⠀⠀",
-        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠙⠻⠂⣀⣴⣶⣿⣿⣷⣶⣤⣀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠙⠻⠂⣀⣴⣶⣿⣿⣷⣶⣤⣀⠀⠀⠀", 
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀",
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⡄⠀",
         "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡟⢉⣉⠙⢿⣿⣿⠿⠋⣀⠁⠀",
@@ -145,6 +145,7 @@ def quiditch_match(character):
 
 def start_chapter_4(character):
     print("============ Chapter 4 : The Quidditch match  ============")
+    pre_quiditch_match(character)
     quiditch_match(character)
     display_character(character)
     print("=======================  End of Chapter 4 ========================")

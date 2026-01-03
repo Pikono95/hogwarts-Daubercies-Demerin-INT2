@@ -15,7 +15,7 @@ An immersive Python-based interactive game where players create a character and 
 
 **Instructions for cloning the Git repository:**
 ```bash
-git clone https://github.com/your-username/hogwarts-Daubercies-Demerin-INT2.git
+git clone https://github.com/Pikono95/hogwarts-Daubercies-Demerin-INT2.git
 cd hogwarts-Daubercies-Demerin-INT2
 ```
 
@@ -116,4 +116,6 @@ There isnt any knowed bug on this project
 ![alt text](image.png)
 ![alt text](image-1.png)
 ![alt text](image-2.png)
+.
+
 **Screenshot of Tests**
