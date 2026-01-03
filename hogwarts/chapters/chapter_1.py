@@ -122,6 +122,8 @@ def buy_supplies(character):
     for i in catalog:
         print(f"- {catalog[i][0]} : {catalog[i][1]} Galleons")
     a = ask_choice("Which pet do you want to buy ?",["Owl","Cat","Rat","Toad"])
+    if a == "Rat" :
+        print("Hmmmm that reminds you of your cousin ... well too bad")
     character["Inventory"].append(a)
     character["Money"] -= catalog[[k for k,v in catalog.items() if v[0]==a][0]][1]
     print(f"You bought a {a}! (- {catalog[[k for k,v in catalog.items() if v[0]==a][0]][1]} Galleons)")

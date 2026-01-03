@@ -9,10 +9,6 @@ from universe.character import *
 from universe.house import *
 from random import randint 
 
-character["First Name"] = "Jack"
-character["Last Name"] = "Smith"
-character["House"] = "Gryffindor"  # Example assignment, this would be set based on sorting logic
-
 def create_team(house,team_data,is_player):
     team = {
         'name' : house ,
@@ -92,50 +88,51 @@ def quiditch_match(character):
     input("You are the seeker, your goal is to score goals and catch the snitch")
     input("You feel your entire body twitching with adrenaline as you mount your broomstick.") #start of the match with text and all
     for i in range (1,10):
-        print("===== Turn",i,"=====")
-        attempt_goal(team1,team2,True)
-        attempt_goal(team2,team1,False)
-        if golden_snitch_appears() == True and snitch == False:
-            input("The golden snitch has appeared, will you catch it ?")
-            goldenball = [
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀",
-    "⠀⢸⡿⠛⠶⣦⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀",
-    "⠀⠀⢻⣿⣶⣤⣈⠙⠻⢶⣤⣀⠀⠀⠀⠀⠀⠀⠀⢙⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀",
-    "⠀⠀⠀⠻⢸⣿⣿⣿⣶⣤⣈⠛⠷⣦⣄⠀⠀⠀⠀⠈⢿⣿⣿⣿⣧⠀⠀⠀⠀⠀",
-    "⠀⠀⠀⠀⠀⠋⠹⡇⢿⣿⣿⣷⣦⣀⠙⠷⣦⡀⠀⠀⠀⠻⣿⣿⣿⠀⠀⠀⠀⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⢿⣿⣷⣦⡈⠛⢦⠀⠀⠀⠘⠛⠻⠀⠀⠀⠀⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠙⠻⠂⣀⣴⣶⣿⣿⣷⣶⣤⣀⠀⠀⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⡄⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡟⢉⣉⠙⢿⣿⣿⠿⠋⣀⠁⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⠁⣿⠛⠷⠀⣤⣤⡄⢸⡿⠁⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣷⣶⣾⣿⣿⡇⠈⠁⠀⠀",
-    "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠁⠀⠀⠀⠀⠀"
-]
-            for e in goldenball:
-                print(e)
-            snitch = True
-            if catch_golden_snitch() == True:
-                team1['caught_snitch'] = 1
-                team1['score'] += 150
-                input("WOW you have catched the snitch 150 points for your team")
-            else:
-                team2['caught_snitch'] = 1
-                team2['score'] += 150
-                input("Sadly the other team has the snitch 150 points for them")
-        display_score(team1,team2)
-        input("press enter to continue")
+        if snitch == False:
+            print("===== Turn",i,"=====")
+            attempt_goal(team1,team2,True)
+            attempt_goal(team2,team1,False)
+            if golden_snitch_appears() == True and snitch == False:
+                input("The golden snitch has appeared, will you catch it ?")
+                goldenball = [
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣦⡀⠀⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀⠀",
+        "⠀⢸⡿⠛⠶⣦⣤⣀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢻⣿⣿⣿⡄⠀⠀⠀⠀⠀⠀",
+        "⠀⠀⢻⣿⣶⣤⣈⠙⠻⢶⣤⣀⠀⠀⠀⠀⠀⠀⠀⢙⣿⣿⣿⣿⡀⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠻⢸⣿⣿⣿⣶⣤⣈⠛⠷⣦⣄⠀⠀⠀⠀⠈⢿⣿⣿⣿⣧⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠋⠹⡇⢿⣿⣿⣷⣦⣀⠙⠷⣦⡀⠀⠀⠀⠻⣿⣿⣿⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠉⠛⠿⢿⣿⣷⣦⡈⠛⢦⠀⠀⠀⠘⠛⠻⠀⠀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠁⠙⠻⠂⣀⣴⣶⣿⣿⣷⣶⣤⣀⠀⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣼⣿⣿⣿⣿⣿⣿⣿⣿⣿⣧⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠋⡄⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢸⣿⡟⢉⣉⠙⢿⣿⣿⠿⠋⣀⠁⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠘⣿⠁⣿⠛⠷⠀⣤⣤⡄⢸⡿⠁⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⢿⣷⣶⣾⣿⣿⡇⠈⠁⠀⠀",
+        "⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⠉⠉⠉⠁⠀⠀⠀⠀⠀"
+        ]
+                for e in goldenball:
+                    print(e)
+                snitch = True
+                if catch_golden_snitch() == True:
+                    team1['caught_snitch'] = 1
+                    team1['score'] += 150
+                    input("WOW you have catched the snitch 150 points for your team")
+                else:
+                    team2['caught_snitch'] = 1
+                    team2['score'] += 150
+                    input("Sadly the other team has the snitch 150 points for them")
+            display_score(team1,team2)
+            input("press enter to continue")
     print("The final score is :")
     display_score(team1,team2)
     input("Press enter to continue...")
     if snitch == True:
         if team1["caught_snitch"] == True:
-            "You've catched the snitch in the match, congratulations"
+            print("You've caught the snitch in the match, congratulations")
         if team2["caught_snitch"] == True:
-            "They've catched the snitch this match"
-        
+            print("They've caught the snitch this match")
+
     if team1['score'] >= team2['score']:
         print("You've did it, you are the quiditch champion ! Congrats ! Your house gets 500 points")
         update_house_point(houses,player_house,500)
@@ -151,3 +148,4 @@ def start_chapter_4(character):
     quiditch_match(character)
     display_character(character)
     print("=======================  End of Chapter 4 ========================")
+
